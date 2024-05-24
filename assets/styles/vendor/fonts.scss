@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,600;1,600&family=Montserrat:ital,wght@0,600;1,600&display=swap');
+
+@mixin font-jost($weight) {
+  font-weight: $weight;
+  font-family: 'Jost', -apple-system, BlinkMacSystemFont, "Segoe UI", Montserrat, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+}
+
+@mixin font-montserrat($weight) {
+  font-weight: $weight;
+  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Montserrat, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+}

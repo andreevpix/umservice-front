@@ -1,0 +1,28 @@
+//paddings
+$containerPaddingLeft: 40px;
+$containerPaddingRight: 40px;
+
+//width
+$containerWidth: calc(1618px - $containerPaddingLeft - $containerPaddingRight);
+$baseFontSize: 16px;
+
+//breakpoints
+$desktop-sm: 1920px;
+
+$notebook: 1368px;
+
+$tablets-lg: 1280px;
+$tablets-md: 1024px;
+$tablets-sm: 768px;
+
+$phones-lg: 560px;
+$phones-md: 480px;
+$phones-sm: 320px;
+
+//colors
+$green: #0099A3;
+
+$background-color: white;
+
+/* z-indexes */
+$z-index-container: 10;

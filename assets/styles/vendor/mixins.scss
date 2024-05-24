@@ -1,0 +1,20 @@
+@mixin centerByElem {
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+@mixin gradient {
+  background: linear-gradient(226.03deg, #B074B3 16.24%, #DA278B 97.17%);
+}
+
+@mixin gradientText {
+  user-select: none;
+
+  background: linear-gradient(202.29deg, #81F8BF -52.21%, #60F8D6 -17.66%, #45F8EA 8%, #3AE5ED 25.35%, #30D5F1 46.38%, #19AEFA 69.3%, #0B95FF 88.29%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
