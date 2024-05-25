@@ -10,8 +10,12 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
+    "@nuxt/kit": "^3.11.2",
+    "ant-design-vue": "4.0.0-rc.6",
     "nuxt": "^3.11.2",
     "nuxt-svgo": "^4.0.1",
+    "unplugin-vue-components": "^0.27.0",
     "vue": "^3.4.27",
     "vue-router": "^4.3.2"
   },
