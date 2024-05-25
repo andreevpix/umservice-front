@@ -2,10 +2,17 @@
 
 @mixin font-jost($weight) {
   font-weight: $weight;
-  font-family: 'Jost', -apple-system, BlinkMacSystemFont, "Segoe UI", Montserrat, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+  font-family: 'Jost', -apple-system, BlinkMacSystemFont, "Segoe UI", Montserrat, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 }
 
-@mixin font-montserrat($weight) {
-  font-weight: $weight;
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Montserrat, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+@mixin font-montserrat($weight, $important: null) {
+  @if $important == null {
+    font-weight: $weight;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Montserrat, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  }
+
+  @if $important != null {
+    font-weight: $weight !important;
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Montserrat, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif !important;
+  }
 }
