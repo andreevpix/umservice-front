@@ -1,6 +1,8 @@
 <template>
-  <div class="container subheader_container">
-    <AppSubHeaderMenu />
+  <div class="subheader_container">
+    <div class="container">
+      <AppSubHeaderMenu />
+    </div>
   </div>
 </template>
 <script setup lang="ts">
