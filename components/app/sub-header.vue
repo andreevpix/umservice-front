@@ -1,5 +1,5 @@
 <template>
-  <div class="subheader_container">
+  <div class="subheader">
     <div class="container">
       <AppSubHeaderMenu />
     </div>
@@ -9,7 +9,7 @@
 </script>
 
 <style lang="scss" scoped>
-.subheader_container {
+.subheader {
   padding-block-start: 16px;
   padding-block-end: 17px;
 
