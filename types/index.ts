@@ -20,3 +20,9 @@ export type TFooterSocial = {
     link: string
     icon: Element
 }
+
+export type TSubMenuResponse = {
+    id: number
+    name: string
+    link: string
+}
