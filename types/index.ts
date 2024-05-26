@@ -14,3 +14,9 @@ export type TFooterMenuResponse = {
     title: string
     items: TFooterMenuItem[]
 }
+
+export type TFooterSocial = {
+    id: number
+    link: string
+    icon: Element
+}

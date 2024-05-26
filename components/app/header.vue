@@ -2,7 +2,7 @@
   <div class="header">
     <div class="container">
       <div class="header_left">
-        <AppLogo />
+        <AppLogo :color="true" />
         <AppHeaderMenu />
       </div>
       <div class="header_right">

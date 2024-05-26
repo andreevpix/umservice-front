@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
+    "@nuxt/image": "^1.7.0",
     "@nuxt/kit": "^3.11.2",
     "ant-design-vue": "4.0.0-rc.6",
     "nuxt": "^3.11.2",

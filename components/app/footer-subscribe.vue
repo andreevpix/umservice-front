@@ -27,6 +27,8 @@
           to="#">условиями обработки персональных данных</NuxtLink>
       </a-checkbox>
     </form>
+    <AppFooterSocials />
+    <AppFooterContacts />
   </div>
 </template>
 
@@ -48,7 +50,10 @@ export default defineComponent({
 .footer_subscribe {
   max-width: 400px;
 }
+
 .footer_subscribe_form {
+  margin-block-end: 28px;
+
   &__title {
     display: inline-block;
 

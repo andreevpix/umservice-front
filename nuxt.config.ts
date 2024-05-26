@@ -5,7 +5,7 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/styles/main.scss'],
-  modules: ['nuxt-svgo'],
+  modules: ['nuxt-svgo', "@nuxt/image"],
   vite: {
     plugins: [
       Components({
@@ -24,5 +24,25 @@ export default defineNuxtConfig({
             },
         },
     },
-  }
+  },
+  app: {
+    head: {
+      title: 'Контакты | Умный сервис',
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+
+      meta: [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { hid: 'description', name: 'description', content: 'Умный сервис' },
+        { hid: 'og-title', property: 'og:title', content: 'Контакты | Умный сервис'},
+        { hid: 'og-type', property: 'og:type', content: 'website' },
+        { hid: 'twitter-card', property: 'twitter:card', content: '' },
+        { hid: 'og-image', property: 'og:image', content: ''},
+        { hid: 'og-description', property: 'og:description', content: 'Умный сервис'},
+        { name: 'format-detection', content: 'telephone=no' }
+      ],
+    },
+    pageTransition: { name: 'page', mode: 'out-in' },
+  },
 })

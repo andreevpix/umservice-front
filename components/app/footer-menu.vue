@@ -221,8 +221,7 @@ const menuRight = ref<TFooterMenuItemResponse | null>([
   display: flex;
   justify-content: space-between;
 
-  width: 70%;
-  flex: 70%;
+  width: 100%;
 }
 
 .footer_menu_nav {
