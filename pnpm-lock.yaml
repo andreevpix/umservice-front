@@ -17,6 +17,9 @@ dependencies:
   ant-design-vue:
     specifier: 4.0.0-rc.6
     version: 4.0.0-rc.6(vue@3.4.27)
+  lodash:
+    specifier: ^4.17.21
+    version: 4.17.21
   nuxt:
     specifier: ^3.11.2
     version: 3.11.2(@opentelemetry/api@1.8.0)(@unocss/reset@0.60.3)(floating-vue@5.2.2)(sass@1.77.2)(unocss@0.60.3)(vite@5.2.11)
@@ -37,6 +40,9 @@ dependencies:
     version: 2.1.2(nuxt@3.11.2)(vue@3.4.27)
 
 devDependencies:
+  '@types/lodash':
+    specifier: ^4.17.4
+    version: 4.17.4
   '@yandex/ymaps3-types':
     specifier: ^0.0.27
     version: 0.0.27
@@ -1878,6 +1884,10 @@ packages:
     dependencies:
       '@types/node': 20.12.12
     dev: false
+
+  /@types/lodash@4.17.4:
+    resolution: {integrity: sha512-wYCP26ZLxaT3R39kiN2+HcJ4kTd3U1waI/cY7ivWYqFP6pW3ZNpvi6Wd6PHZx7T/t8z0vlkXMg3QYLa7DZ/IJQ==}
+    dev: true
 
   /@types/node@20.12.12:
     resolution: {integrity: sha512-eWLDGF/FOSPtAvEqeRAQ4C8LSA7M1I7i0ky1I8U7kD1J5ITyW3AsRhQrKVoWf5pFKZ2kILsEGJhsI9r93PYnOw==}
@@ -4922,6 +4932,7 @@ packages:
 
   /napi-wasm@1.1.0:
     resolution: {integrity: sha512-lHwIAJbmLSjF9VDRm9GoVOy9AGp3aIvkjv+Kvz9h16QR3uSVYH78PNQUnT2U4X53mhlnV2M7wrhibQ3GHicDmg==}
+    requiresBuild: true
     dev: false
 
   /negotiator@0.6.3:

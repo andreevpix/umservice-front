@@ -3,6 +3,9 @@ import Components from 'unplugin-vue-components/vite';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 
 export default defineNuxtConfig({
+  runtimeConfig: {
+    DADATA_TOKEN: process.env.DADATA_TOKEN,
+  },
   devtools: { enabled: true },
   css: ['~/assets/styles/main.scss'],
   modules: ['nuxt-svgo', "@nuxt/image", 'vue-yandex-maps/nuxt'],

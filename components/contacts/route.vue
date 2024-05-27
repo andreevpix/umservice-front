@@ -75,7 +75,30 @@
 
           <span class="route_data__note">На автомобиле</span>
 
-          <NuxtLink class="route_data__link" to="#">Адрес отправления</NuxtLink>
+          <div class="route_data__input_wrapper">
+            <a-input v-model:value="reqAddress"
+              placeholder="Адрес отправления"
+              type="email"
+              class="route_data__input"
+              prefix="input"
+            >
+              <template #suffix>
+                <LoadingOutlined v-if="isLoading" class="route_data__input_loading" />
+                <button v-else class="route_data__input_submit" type="button">
+                  <NodeIndexOutlined />
+                </button>
+              </template>
+            </a-input>
+            <ul class="route_data__input_result" v-if="suggestions.length">
+              <li
+                  class="route_data__input_result_item"
+                  v-for="(suggestion, index) in suggestions" :key="index"
+                  @click="setAddress(suggestion.value)"
+              >
+                {{ suggestion.value }}
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="route_map">
           <yandex-map
@@ -118,6 +141,51 @@ import {
   YandexMapDefaultSchemeLayer, YandexMapGeolocationControl, YandexMapMarker, YandexMapScaleControl,
   YandexMapZoomControl,
 } from "vue-yandex-maps";
+import { ref, watch } from 'vue';
+import { debounce } from 'lodash';
+import {
+  LoadingOutlined,
+} from '@ant-design/icons-vue';
+
+const reqAddress = ref('')
+const suggestions = ref([]);
+const submitAddress = ref<boolean>(false);
+const isLoading = ref<boolean>(false);
+
+const setAddress = (address: string) => {
+  reqAddress.value = address
+  suggestions.value = []
+  submitAddress.value = true;
+}
+
+const fetchAddressSuggestions = debounce(async () => {
+  isLoading.value = true;
+
+  const { data, error } = await useFetch('/api/service/get-address', {
+    method: 'POST',
+    body: { query: reqAddress.value },
+  });
+
+  if (!error.value && data.value) {
+    suggestions.value = data.value.suggestions;
+  } else {
+    console.error('Error fetching suggestions:', error.value);
+  }
+
+
+  isLoading.value = false;
+}, 1500);
+
+watch(reqAddress, () => {
+  if (!submitAddress.value) {
+    isLoading.value = true
+    fetchAddressSuggestions()?.finally(() => {
+      isLoading.value = false
+    });
+  }
+
+  submitAddress.value = false;
+});
 </script>
 
 <style lang="scss">
@@ -127,6 +195,7 @@ import {
 
 .route_wrapper {
   display: flex;
+  column-gap: 50px;
 
   padding-block-start: 32px;
   padding-block-end: 32px;
@@ -159,6 +228,86 @@ import {
 
   &__metro {
     margin-block-end: 24px;
+  }
+
+  &__input {
+    margin-block-end: 20px !important;
+    padding-block-start: 13px !important;
+    padding-block-end: 13px !important;
+    padding-inline-start: 16px !important;
+
+    border-color: $green !important;
+
+    &,
+    & > * {
+      @include font-montserrat(500, important);
+      font-size: 16px !important;
+      line-height: 1 !important;
+      color: $green !important;
+    }
+  }
+
+  &__input_wrapper {
+    position: relative;
+  }
+
+  &__input_submit {
+    border: none;
+    outline: none;
+    background: none;
+
+    cursor: pointer;
+
+    & svg {
+      fill: $green;
+    }
+  }
+
+  &__input_result {
+    max-height: 200px;
+
+    padding-block-start: 8px;
+    padding-block-end: 8px;
+    padding-inline-start: 8px;
+    padding-inline-end: 8px;
+
+    border: 1px solid $green;
+    border-radius: 8px;
+    background: #fff;
+
+    position: absolute;
+    top: 90%;
+    left: 0;
+    right: 0;
+
+    overflow-y: auto;
+
+    z-index: 10;
+  }
+
+  &__input_result_item {
+    padding-block-start: 12px;
+    padding-block-end: 12px;
+    padding-inline-start: 8px;
+    padding-inline-end: 8px;
+
+    border-radius: 0;
+    background: white;
+
+    cursor: pointer;
+
+    transition: .2s ease-in-out;
+
+    &:hover {
+      background: $green;
+      border-radius: 8px;
+
+      color: white;
+    }
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid $green;
+    }
   }
 
   &__metro_item {
@@ -229,29 +378,6 @@ import {
     font-weight: 500;
     white-space: break-spaces;
     color: #141212;
-  }
-
-  &__link {
-    display: inline-block;
-
-    padding-block-start: 13px;
-    padding-block-end: 13px;
-    padding-inline-start: 16px;
-    padding-inline-end: 98px;
-
-    border: 1px solid $green;
-    border-radius: 8px;
-
-    color: $green;
-    text-decoration: none;
-
-    transition: .2s ease-in-out;
-
-    &:hover {
-      color: white;
-
-      background: $green;
-    }
   }
 }
 .route_map {
