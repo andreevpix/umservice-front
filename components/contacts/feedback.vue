@@ -180,7 +180,7 @@ export default defineComponent({
 
   &__checkbox {
     margin-block-start: 10px;
-    
+
     @include font-montserrat(500, important);
     font-size: 14px !important;
     line-height: 1.2 !important;
