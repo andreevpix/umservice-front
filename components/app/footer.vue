@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <div class="container">
+    <div class="container footer_container">
       <div class="footer_top">
         <div class="footer__left">
           <AppFooterMenu />
@@ -26,12 +26,9 @@
 
 <style lang="scss" scoped>
 .footer {
-  background: $greenPastel;
+  margin-block-start: 64px;
 
-  & .container {
-    padding-block-start: 30px;
-    padding-block-end: 22px;
-  }
+  background: $greenPastel;
 
   &__left {
     display: flex;
@@ -45,6 +42,11 @@
   &__right {
     width: 30%;
   }
+}
+
+.footer_container {
+    padding-block-start: 30px;
+    padding-block-end: 22px;
 }
 
 .footer_top {

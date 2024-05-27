@@ -3,4 +3,5 @@
   <ContactsTitle />
   <ContactsCards />
   <ContactsRoute />
+  <ContactsFeedback />
 </template>
