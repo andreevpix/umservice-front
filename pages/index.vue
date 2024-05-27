@@ -2,4 +2,5 @@
   <ContactsBreadcrumb />
   <ContactsTitle />
   <ContactsCards />
+  <ContactsRoute />
 </template>
