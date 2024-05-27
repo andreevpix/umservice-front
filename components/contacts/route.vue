@@ -78,12 +78,47 @@
           <NuxtLink class="route_data__link" to="#">Адрес отправления</NuxtLink>
         </div>
         <div class="route_map">
-          <NuxtImg src="/img/contacts-route/map.jpg" />
+          <yandex-map
+            :settings="{
+              location: {
+                center: [37.526933, 55.765403],
+                zoom: 17,
+              },
+            }"
+            height="462px"
+            :cursor-grab="true"
+          >
+            <yandex-map-default-features-layer />
+            <yandex-map-default-scheme-layer />
+
+            <yandex-map-controls :settings="{ position: 'right' }">
+              <yandex-map-zoom-control />
+              <yandex-map-scale-control />
+              <yandex-map-geolocation-control />
+            </yandex-map-controls>
+
+            <yandex-map-default-marker
+                :settings="{
+              coordinates: [37.526980, 55.765513],
+              title: 'Умный сервис ⭐4,8',
+              subtitle: 'До 18:00'
+            }"
+            />
+          </yandex-map>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import {
+  YandexMap,
+  YandexMapControls, YandexMapDefaultFeaturesLayer, YandexMapDefaultMarker,
+  YandexMapDefaultSchemeLayer, YandexMapGeolocationControl, YandexMapMarker, YandexMapScaleControl,
+  YandexMapZoomControl,
+} from "vue-yandex-maps";
+</script>
 
 <style lang="scss">
 .route {
@@ -225,22 +260,5 @@
   width: 64.5%;
 
   border-radius: 16px;
-
-  user-select: none;
-  pointer-events: none;
-
-  & img {
-    min-width: 100%;
-
-    border-radius: 16px;
-
-    user-select: none;
-    pointer-events: none;
-
-    object-fit: cover;
-    object-position: right;
-  }
 }
 </style>
-<script setup lang="ts">
-</script>

@@ -18,9 +18,11 @@
     "nuxt-svgo": "^4.0.1",
     "unplugin-vue-components": "^0.27.0",
     "vue": "^3.4.27",
-    "vue-router": "^4.3.2"
+    "vue-router": "^4.3.2",
+    "vue-yandex-maps": "^2.1.2"
   },
   "devDependencies": {
+    "@yandex/ymaps3-types": "^0.0.27",
     "sass": "^1.77.2"
   }
 }

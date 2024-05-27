@@ -5,7 +5,7 @@ import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/styles/main.scss'],
-  modules: ['nuxt-svgo', "@nuxt/image"],
+  modules: ['nuxt-svgo', "@nuxt/image", 'vue-yandex-maps/nuxt'],
   vite: {
     plugins: [
       Components({
@@ -43,5 +43,8 @@ export default defineNuxtConfig({
       ],
     },
     pageTransition: { name: 'page', mode: 'out-in' },
+  },
+  yandexMaps: {
+    apikey: '9fa90fbc-ce5f-4dc9-ae6d-433e0ec7338b',
   },
 })
