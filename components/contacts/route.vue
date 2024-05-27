@@ -27,6 +27,7 @@
 
           <ul class="route_data__metro">
             <li class="route_data__metro_item">
+              <NuxtLink to="https://yandex.ru/maps/-/CDbvmF9l" target="_blank">
               <span class="route_data__metro_icon"
                 style="background: #7949A4"
               >
@@ -40,8 +41,10 @@
                 </svg>
                 <span class="route_data__metro_distance_text">1.86 км</span>
               </p>
+              </NuxtLink>
             </li>
             <li class="route_data__metro_item">
+              <NuxtLink to="https://yandex.ru/maps/-/CDbvmVyy" target="_blank">
               <span class="route_data__metro_icon"
                 style="background: #70B0B1"
               >
@@ -55,8 +58,10 @@
                 </svg>
                 <span class="route_data__metro_distance_text">1.9 км</span>
               </p>
+              </NuxtLink>
             </li>
             <li class="route_data__metro_item">
+              <NuxtLink to="https://yandex.ru/maps/-/CDbvmCM7" target="_blank">
               <span class="route_data__metro_icon"
                 style="background: #70B0B1"
               >
@@ -70,6 +75,7 @@
                 </svg>
                 <span class="route_data__metro_distance_text">1.93 км</span>
               </p>
+                </NuxtLink>
             </li>
           </ul>
 
@@ -78,7 +84,7 @@
           <div class="route_data__input_wrapper">
             <a-input v-model:value="reqAddress"
               placeholder="Адрес отправления"
-              type="email"
+              type="text"
               class="route_data__input"
               prefix="input"
             >
@@ -140,7 +146,7 @@ import {
   getLocationFromBounds, VueYandexMaps,
   YandexMap,
   YandexMapControls, YandexMapDefaultFeaturesLayer, YandexMapDefaultMarker,
-  YandexMapDefaultSchemeLayer, YandexMapFeature, YandexMapGeolocationControl, YandexMapScaleControl,
+  YandexMapDefaultSchemeLayer, YandexMapGeolocationControl, YandexMapScaleControl,
   YandexMapZoomControl,
 } from "vue-yandex-maps";
 
@@ -236,10 +242,6 @@ watch(reqAddress, () => {
     color: $green;
   }
 
-  &__metro {
-    margin-block-end: 24px;
-  }
-
   &__input {
     margin-block-end: 20px !important;
     padding-block-start: 13px !important;
@@ -320,12 +322,38 @@ watch(reqAddress, () => {
     }
   }
 
+  &__metro {
+    margin-block-end: 24px;
+  }
+
   &__metro_item {
-    display: flex;
-    align-items: center;
+    width: max-content;
+
+    padding-inline-end: 10px;
+
+    border-radius: 3.5px;
+
+    cursor: pointer;
+
+    transition: .2s ease-in-out;
+
+    &:hover {
+      background: $green;
+
+      color: white;
+    }
 
     &:not(:last-of-type) {
       margin-block-end: 16px;
+    }
+
+    & a {
+      display: flex;
+      align-items: center;
+
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
     }
   }
 
