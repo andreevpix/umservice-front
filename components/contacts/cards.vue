@@ -29,7 +29,7 @@
         <NuxtLink
             class="cards_list__item_download"
             v-if="card.document"
-            :to="card.document.link"
+            to="/documents/umservice_requisitos.docx"
             type="download"
             external
         >
