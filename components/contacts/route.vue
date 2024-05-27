@@ -209,6 +209,14 @@
 
     color: $green;
     text-decoration: none;
+
+    transition: .2s ease-in-out;
+
+    &:hover {
+      color: white;
+
+      background: $green;
+    }
   }
 }
 .route_map {

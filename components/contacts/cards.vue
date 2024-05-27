@@ -129,7 +129,7 @@ const dataCards = ref<TContactsCard[]>([
 ])
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .cards_container {
   padding-block-end: 8px;
 }
@@ -195,10 +195,28 @@ const dataCards = ref<TContactsCard[]>([
 
     background: #F5F5F7;
     border-radius: 5px;
+
+    transition: .2s ease-in-out;
+
+    &:hover {
+      background: $green;
+
+      color: white;
+
+      & svg path {
+        stroke: white;
+      }
+    }
   }
 
   &__item_download_icon {
     margin-inline-start: 12px;
+
+    & svg path {
+      stroke: $green;
+
+      transition: .2s ease-in-out;
+    }
   }
 
   &__item_data_contact {
