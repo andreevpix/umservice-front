@@ -84,16 +84,19 @@
             >
               <template #suffix>
                 <LoadingOutlined v-if="isLoading" class="route_data__input_loading" />
-                <button v-else class="route_data__input_submit" type="button">
+                <NuxtLink v-else :to="linkToTheRoute || '#'"
+                          class="route_data__input_submit"
+                          target="_blank"
+                >
                   <NodeIndexOutlined />
-                </button>
+                </NuxtLink>
               </template>
             </a-input>
             <ul class="route_data__input_result" v-if="suggestions.length">
               <li
                   class="route_data__input_result_item"
                   v-for="(suggestion, index) in suggestions" :key="index"
-                  @click="setAddress(suggestion.value)"
+                  @click="setAddress(suggestion.value, {lon: suggestion.data.geo_lon, lat: suggestion.data.geo_lat})"
               >
                 {{ suggestion.value }}
               </li>
@@ -103,10 +106,7 @@
         <div class="route_map">
           <yandex-map
             :settings="{
-              location: {
-                center: [37.526933, 55.765403],
-                zoom: 17,
-              },
+              location,
             }"
             height="462px"
             :cursor-grab="true"
@@ -121,11 +121,12 @@
             </yandex-map-controls>
 
             <yandex-map-default-marker
-                :settings="{
-              coordinates: [37.526980, 55.765513],
-              title: 'Умный сервис ⭐4,8',
-              subtitle: 'До 18:00'
-            }"
+              :settings="{
+                coordinates: location.center,
+                title: 'Умный сервис ⭐4,8',
+                subtitle: 'До 18:00',
+                draggable: true,
+              }"
             />
           </yandex-map>
         </div>
@@ -136,12 +137,14 @@
 
 <script setup lang="ts">
 import {
+  getLocationFromBounds, VueYandexMaps,
   YandexMap,
   YandexMapControls, YandexMapDefaultFeaturesLayer, YandexMapDefaultMarker,
-  YandexMapDefaultSchemeLayer, YandexMapGeolocationControl, YandexMapMarker, YandexMapScaleControl,
+  YandexMapDefaultSchemeLayer, YandexMapFeature, YandexMapGeolocationControl, YandexMapScaleControl,
   YandexMapZoomControl,
 } from "vue-yandex-maps";
-import { ref, watch } from 'vue';
+
+import { ref, shallowRef, watch } from 'vue';
 import { debounce } from 'lodash';
 import {
   LoadingOutlined,
@@ -149,13 +152,20 @@ import {
 
 const reqAddress = ref('')
 const suggestions = ref([]);
+const linkToTheRoute = ref('');
 const submitAddress = ref<boolean>(false);
 const isLoading = ref<boolean>(false);
 
-const setAddress = (address: string) => {
+const location = ref({
+  center: [37.526933, 55.765403], // starting position [lng, lat]
+  zoom: 17, // starting zoom
+});
+
+const setAddress = (address: string, geo) => {
   reqAddress.value = address
   suggestions.value = []
   submitAddress.value = true;
+  linkToTheRoute.value = `https://yandex.ru/maps/?ll=${geo.lon}%2C${geo.lat}&mode=routes&routes%5BactiveComparisonMode%5D=auto&rtext=${geo.lat}%2C${geo.lon}~55.765513%2C37.526983&rtt=comparison&ruri=~ymapsbm1%3A%2F%2Forg%3Foid%3D124354844888&utm_source=share&z=15.04`
 }
 
 const fetchAddressSuggestions = debounce(async () => {
