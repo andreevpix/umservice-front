@@ -13,7 +13,6 @@ export default defineNuxtConfig({
         resolvers: [AntDesignVueResolver({resolveIcons: true, importStyle: false})],
       }),
     ],
-    // @ts-expect-error: Missing ssr key
     ssr: {
       noExternal: ['moment', 'compute-scroll-into-view', 'ant-design-vue','@ant-design/icons-vue'],
     },
