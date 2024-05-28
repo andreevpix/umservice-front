@@ -244,7 +244,7 @@ import {
 } from "vue-yandex-maps";
 
 import { ref, watch } from "vue";
-import { debounce } from "lodash";
+import debounce from "lodash/debounce";
 import { LoadingOutlined } from "@ant-design/icons-vue";
 
 const reqAddress = ref("");
