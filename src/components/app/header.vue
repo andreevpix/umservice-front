@@ -5,7 +5,9 @@
         <AppLogo :color="true" />
         <AppHeaderMenu />
       </div>
-      <div class="header_right">right</div>
+      <div class="header_right">
+        <AppHeaderPanel />
+      </div>
     </div>
   </div>
 </template>
