@@ -69,6 +69,6 @@ export default defineNuxtConfig({
     pageTransition: { name: "page", mode: "out-in" },
   },
   yandexMaps: {
-    apikey: "9fa90fbc-ce5f-4dc9-ae6d-433e0ec7338b",
+    apikey: "f7f2a8ce-50dd-48a5-97fc-ee7fcf4c2e66",
   },
 });
