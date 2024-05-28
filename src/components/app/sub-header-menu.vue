@@ -1,12 +1,21 @@
 <template>
   <ul class="subheader_menu">
-    <li class="subheader_menu__item" v-for="menuItem in dataMenu">
+    <li v-for="menuItem in dataMenu" class="subheader_menu__item">
       <NuxtLink :to="menuItem.link">
-        {{menuItem.name}}
+        {{ menuItem.name }}
       </NuxtLink>
       <span class="subheader_menu__item_icon">
-        <svg width="13" height="8" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.0006 0.656854L6.34375 6.31371L0.686896 0.656854" stroke="#141212"/>
+        <svg
+          width="13"
+          height="8"
+          viewBox="0 0 13 8"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.0006 0.656854L6.34375 6.31371L0.686896 0.656854"
+            stroke="#141212"
+          />
         </svg>
       </span>
     </li>
@@ -15,35 +24,35 @@
 
 <script setup lang="ts">
 // Types
-import type {TSubMenuResponse} from "../../types";
+import type { TSubMenuResponse } from "../../types";
 
 const dataMenu = ref<TSubMenuResponse[]>([
   {
     id: 1,
-    name: 'Оборудование',
-    link: '#',
+    name: "Оборудование",
+    link: "#",
   },
   {
     id: 2,
-    name: 'Отраслевые решения',
-    link: '#',
+    name: "Отраслевые решения",
+    link: "#",
   },
   {
     id: 3,
-    name: 'Сервис и ремонт',
-    link: '#',
+    name: "Сервис и ремонт",
+    link: "#",
   },
   {
     id: 4,
-    name: 'Компания',
-    link: '#',
+    name: "Компания",
+    link: "#",
   },
   {
     id: 5,
-    name: 'Медиацентр',
-    link: '#',
+    name: "Медиацентр",
+    link: "#",
   },
-])
+]);
 </script>
 
 <style lang="scss">

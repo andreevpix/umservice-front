@@ -2,29 +2,40 @@
   <div class="footer_subscribe">
     <form class="footer_subscribe_form">
       <span class="footer_subscribe_form__title">Подписаться на рассылку</span>
-      <a-input v-model:value="value"
-               placeholder="E-mail"
-               type="email"
-               class="footer_subscribe_form__input_wrapper"
-               prefix="input"
+      <a-input
+        v-model:value="value"
+        placeholder="E-mail"
+        type="email"
+        class="footer_subscribe_form__input_wrapper"
+        prefix="input"
       >
         <template #suffix>
           <button class="footer_subscribe_form__submit" type="submit">
             <svg
-                width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0.656854 0.999395L6.31371 6.65625L0.656855 12.3131" stroke="#0099A3"/>
+              width="8"
+              height="13"
+              viewBox="0 0 8 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.656854 0.999395L6.31371 6.65625L0.656855 12.3131"
+                stroke="#0099A3"
+              />
             </svg>
           </button>
         </template>
       </a-input>
-      <a-checkbox v-model:checked="checked"
-               class="footer_subscribe_form__checkbox"
+      <a-checkbox
+        v-model:checked="checked"
+        class="footer_subscribe_form__checkbox"
       >
-        Я соглашаюсь с <NuxtLink
-          class="footer_subscribe_form__link"
-          to="#">офертой</NuxtLink> и <NuxtLink
-          class="footer_subscribe_form__link"
-          to="#">условиями обработки персональных данных</NuxtLink>
+        Я соглашаюсь с
+        <NuxtLink class="footer_subscribe_form__link" to="#">офертой</NuxtLink>
+        и
+        <NuxtLink class="footer_subscribe_form__link" to="#"
+          >условиями обработки персональных данных</NuxtLink
+        >
       </a-checkbox>
     </form>
     <AppFooterSocials />
@@ -33,14 +44,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
+import { defineComponent, ref } from "vue";
 export default defineComponent({
   setup() {
-    const value = ref<string>('');
+    const value = ref<string>("");
     const checked = ref<boolean>(false);
     return {
       value,
-      checked
+      checked,
     };
   },
 });
@@ -108,7 +119,7 @@ export default defineComponent({
     outline: none;
     background: transparent;
 
-    line-height: .2;
+    line-height: 0.2;
 
     cursor: pointer;
   }

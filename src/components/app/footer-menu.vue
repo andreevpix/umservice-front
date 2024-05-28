@@ -1,219 +1,248 @@
 <template>
-    <div class="footer_menu">
-      <div class="footer_menu_col">
-        <nav class="footer_menu_nav" v-for="menuList in menuLeft">
-          <span class="footer_menu_title">{{menuList.title}}</span>
-          <ul class="footer_menu_list">
-            <li class="footer_menu_list__item" v-for="menuListItem in menuList.items">
-              <NuxtLink :to="menuListItem.link">{{menuListItem.name}}</NuxtLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="footer_menu_col">
-        <nav class="footer_menu_nav" v-for="menuList in menuCenter">
-          <span class="footer_menu_title">{{menuList.title}}</span>
-          <ul class="footer_menu_list">
-            <li class="footer_menu_list__item" v-for="menuListItem in menuList.items">
-              <NuxtLink :to="menuListItem.link">{{menuListItem.name}}</NuxtLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <div class="footer_menu_col">
-        <nav class="footer_menu_nav" v-for="menuList in menuRight">
-          <span class="footer_menu_title">{{menuList.title}}</span>
-          <ul class="footer_menu_list">
-            <li class="footer_menu_list__item" v-for="menuListItem in menuList.items">
-              <NuxtLink :to="menuListItem.link">{{menuListItem.name}}</NuxtLink>
-            </li>
-          </ul>
-        </nav>
-      </div>
+  <div class="footer_menu">
+    <div class="footer_menu_col">
+      <nav
+        v-for="menuList in menuLeft"
+        :key="menuList.id"
+        class="footer_menu_nav"
+      >
+        <span class="footer_menu_title">{{ menuList.title }}</span>
+        <ul class="footer_menu_list">
+          <li
+            v-for="menuListItem in menuList.items"
+            :key="menuListItem.id"
+            class="footer_menu_list__item"
+          >
+            <NuxtLink :to="menuListItem.link">{{ menuListItem.name }}</NuxtLink>
+          </li>
+        </ul>
+      </nav>
     </div>
+    <div class="footer_menu_col">
+      <nav
+        v-for="menuList in menuCenter"
+        :key="menuList.id"
+        class="footer_menu_nav"
+      >
+        <span class="footer_menu_title">{{ menuList.title }}</span>
+        <ul class="footer_menu_list">
+          <li
+            v-for="menuListItem in menuList.items"
+            :key="menuListItem.id"
+            class="footer_menu_list__item"
+          >
+            <NuxtLink :to="menuListItem.link">{{ menuListItem.name }}</NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer_menu_col">
+      <nav
+        v-for="menuList in menuRight"
+        :key="menuList.id"
+        class="footer_menu_nav"
+      >
+        <span class="footer_menu_title">{{ menuList.title }}</span>
+        <ul class="footer_menu_list">
+          <li
+            v-for="menuListItem in menuList.items"
+            :key="menuListItem.id"
+            class="footer_menu_list__item"
+          >
+            <NuxtLink :to="menuListItem.link">{{ menuListItem.name }}</NuxtLink>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
-import type {TFooterMenuItemResponse} from "~/types";
+import type { TFooterMenuResponse } from "~/types";
 
-const menuLeft = ref<TFooterMenuItemResponse | null>([
+const menuLeft = ref<TFooterMenuResponse[] | null>([
   {
+    id: 1,
     title: "Оборудование",
     items: [
       {
         id: 1,
         name: "Терминалы сбора данных",
-        link: '#'
+        link: "#",
       },
       {
         id: 2,
         name: "Принтеры этикеток",
-        link: '#'
+        link: "#",
       },
       {
         id: 3,
         name: "Сканеры штрих-кода",
-        link: '#'
-      }
-    ]
+        link: "#",
+      },
+    ],
   },
   {
+    id: 2,
     title: "Отраслевые решения",
     items: [
       {
         id: 1,
         name: "Производство",
-        link: '#'
+        link: "#",
       },
       {
         id: 2,
         name: "Логистика",
-        link: '#'
+        link: "#",
       },
       {
         id: 3,
         name: "Ритейл",
-        link: '#'
+        link: "#",
       },
       {
         id: 4,
         name: "Здравоохранение",
-        link: '#'
+        link: "#",
       },
       {
         id: 5,
         name: "Ювелирные изделия",
-        link: '#'
+        link: "#",
       },
       {
         id: 6,
         name: "Молочная отрасль",
-        link: '#'
-      }
-    ]
-  }
-])
+        link: "#",
+      },
+    ],
+  },
+]);
 
-const menuCenter = ref<TFooterMenuItemResponse | null>([
+const menuCenter = ref<TFooterMenuResponse[] | null>([
   {
+    id: 1,
     title: "Сервис и ремонт",
     items: [
       {
         id: 1,
         name: "Сервисные контракты",
-        link: '#'
+        link: "#",
       },
       {
         id: 2,
         name: "Ремонт ТСД",
-        link: '#'
+        link: "#",
       },
       {
         id: 3,
         name: "Ремонт принтеров",
-        link: '#'
+        link: "#",
       },
       {
         id: 4,
         name: "Ремонт сканеров",
-        link: '#'
+        link: "#",
       },
       {
         id: 5,
         name: "Аутсорсинг IT-инфраструктуры",
-        link: '#'
+        link: "#",
       },
       {
         id: 6,
         name: "Трейд-ин",
-        link: '#'
+        link: "#",
       },
       {
         id: 7,
         name: "Модернизация ТСД",
-        link: '#'
+        link: "#",
       },
       {
         id: 8,
         name: "Аренда ТСД",
-        link: '#'
-      }
-    ]
-  }
-])
+        link: "#",
+      },
+    ],
+  },
+]);
 
-const menuRight = ref<TFooterMenuItemResponse | null>([
+const menuRight = ref<TFooterMenuResponse[] | null>([
   {
+    id: 1,
     title: "Компания",
     items: [
       {
         id: 1,
         name: "Команда",
-        link: '#'
+        link: "#",
       },
       {
         id: 2,
         name: "Партнеры",
-        link: '#'
+        link: "#",
       },
       {
         id: 3,
         name: "Клиенты",
-        link: '#'
+        link: "#",
       },
       {
         id: 4,
         name: "Сертификаты",
-        link: '#'
+        link: "#",
       },
       {
         id: 5,
         name: "Вакансии",
-        link: '#'
+        link: "#",
       },
       {
         id: 6,
         name: "Контакты",
-        link: '#'
+        link: "#",
       },
       {
         id: 7,
         name: "Доставка и оплата",
-        link: '#'
+        link: "#",
       },
       {
         id: 8,
         name: "Гарантийные обязательства",
-        link: '#'
-      }
-    ]
+        link: "#",
+      },
+    ],
   },
   {
+    id: 2,
     title: "Медиацентр",
     items: [
       {
         id: 1,
         name: "Новости",
-        link: '#'
+        link: "#",
       },
       {
         id: 2,
         name: "Статьи",
-        link: '#'
+        link: "#",
       },
       {
         id: 3,
         name: "Кейсы",
-        link: '#'
+        link: "#",
       },
       {
         id: 4,
         name: "Вопрос-ответ",
-        link: '#'
-      }
-    ]
-  }
-])
+        link: "#",
+      },
+    ],
+  },
+]);
 </script>
 
 <style lang="scss" scoped>
@@ -253,7 +282,7 @@ const menuRight = ref<TFooterMenuItemResponse | null>([
       position: relative;
 
       &::after {
-        content: '';
+        content: "";
 
         width: 0;
         height: 1px;
@@ -264,7 +293,7 @@ const menuRight = ref<TFooterMenuItemResponse | null>([
         bottom: -2px;
         left: 0;
 
-        transition: .2s ease-in-out;
+        transition: 0.2s ease-in-out;
       }
 
       &:hover::after {

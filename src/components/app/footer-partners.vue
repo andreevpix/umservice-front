@@ -2,12 +2,12 @@
   <div class="footer_partners">
     <NuxtImg class="footer_partners__img" src="/img/partners/mintsifry.png" />
     <p class="footer_partners__description">
-      {{ 'Компания входит в реестр\nаккредитованных IT - компаний' }}
+      {{ "Компания входит в реестр\nаккредитованных IT - компаний" }}
     </p>
   </div>
 </template>
-<script lang="ts">
-</script>
+
+<script lang="ts"></script>
 
 <style lang="scss">
 .footer_partners {

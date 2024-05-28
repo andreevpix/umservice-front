@@ -1,8 +1,8 @@
 <template>
   <ul class="header_menu">
-    <li class="header_menu__item" v-for="menuItem in menu">
+    <li v-for="menuItem in menu" :key="menuItem.id" class="header_menu__item">
       <NuxtLink :to="menuItem.link">
-        {{menuItem.name}}
+        {{ menuItem.name }}
       </NuxtLink>
     </li>
   </ul>
@@ -10,18 +10,18 @@
 
 <script setup lang="ts">
 // Types
-import type {THeaderMenuResponse} from "~/types";
+import type { THeaderMenuResponse } from "~/types";
 
 const menu = ref<THeaderMenuResponse[] | null>();
 
 const fetchMenu = async () => {
-  const { data } = await useFetch('/api/header-menu');
+  const { data } = await useFetch("/api/header-menu");
   Object.assign(menu, {
-    value: data.value
-  })
-}
+    value: data.value,
+  });
+};
 
-fetchMenu()
+fetchMenu();
 </script>
 
 <style lang="scss">
@@ -37,7 +37,7 @@ fetchMenu()
     position: relative;
     top: 0;
 
-    transition: .2s ease-in-out;
+    transition: 0.2s ease-in-out;
 
     &:hover {
       top: -2px;

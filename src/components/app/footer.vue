@@ -21,8 +21,8 @@
     </div>
   </div>
 </template>
-<script setup lang="ts">
-</script>
+
+<script setup lang="ts"></script>
 
 <style lang="scss" scoped>
 .footer {
@@ -45,8 +45,8 @@
 }
 
 .footer_container {
-    padding-block-start: 30px;
-    padding-block-end: 22px;
+  padding-block-start: 30px;
+  padding-block-end: 22px;
 }
 
 .footer_top {
@@ -56,7 +56,7 @@
 
   padding-block-end: 32px;
 
-  border-bottom: .5px #ccc solid;
+  border-bottom: 0.5px #ccc solid;
 }
 
 .footer_bottom {
