@@ -202,7 +202,10 @@
         <div class="route_map">
           <yandex-map
             :settings="{
-              location,
+              location: {
+                center: [37.526933, 55.765403], // starting position [lng, lat]
+                zoom: 17, // starting zoom
+              },
             }"
             height="462px"
             :cursor-grab="true"
@@ -218,7 +221,7 @@
 
             <yandex-map-default-marker
               :settings="{
-                coordinates: location.center,
+                coordinates: [37.526933, 55.765403],
                 title: 'Умный сервис ⭐4,8',
                 subtitle: 'До 18:00',
                 draggable: true,
@@ -252,11 +255,6 @@ const suggestions = ref([]);
 const linkToTheRoute = ref("");
 const submitAddress = ref<boolean>(false);
 const isLoading = ref<boolean>(false);
-
-const location = ref({
-  center: [37.526933, 55.765403], // starting position [lng, lat]
-  zoom: 17, // starting zoom
-});
 
 const setAddress = (address: string, geo) => {
   reqAddress.value = address;
