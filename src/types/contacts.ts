@@ -18,3 +18,16 @@ export type TContactsCard = {
   icon: Element;
   document?: TContactsCardDocument;
 };
+
+export type TContactsRouteGeo = {
+  lon: string;
+  lat: string;
+};
+
+export type TContactsRouteMetro = {
+  id: number;
+  name: string;
+  linkRoute: string;
+  color: string;
+  distance: string;
+};

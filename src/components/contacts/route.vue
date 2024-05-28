@@ -62,15 +62,19 @@
           <span class="route_data__note">Пешком и транспортом</span>
 
           <ul class="route_data__metro">
-            <li class="route_data__metro_item">
-              <NuxtLink to="https://yandex.ru/maps/-/CDbvmF9l" target="_blank">
+            <li
+              v-for="metro in dataMetro"
+              :key="metro.id"
+              class="route_data__metro_item"
+            >
+              <NuxtLink :to="metro.linkRoute" target="_blank">
                 <span
                   class="route_data__metro_icon"
-                  style="background: #7949a4"
+                  :style="{ background: metro.color }"
                 >
                   M
                 </span>
-                <span class="route_data__metro_name">Беговая</span>
+                <span class="route_data__metro_name">{{ metro.name }}</span>
                 <p class="route_data__metro_distance">
                   <svg
                     class="route_data__metro_distance_icon"
@@ -89,69 +93,9 @@
                       fill="black"
                     />
                   </svg>
-                  <span class="route_data__metro_distance_text">1.86 км</span>
-                </p>
-              </NuxtLink>
-            </li>
-            <li class="route_data__metro_item">
-              <NuxtLink to="https://yandex.ru/maps/-/CDbvmVyy" target="_blank">
-                <span
-                  class="route_data__metro_icon"
-                  style="background: #70b0b1"
-                >
-                  M
-                </span>
-                <span class="route_data__metro_name">Шелепиха</span>
-                <p class="route_data__metro_distance">
-                  <svg
-                    class="route_data__metro_distance_icon"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8.47596 3.2787C9.10096 3.3287 9.65096 2.8537 9.70096 2.2287C9.75096 1.6037 9.28846 1.0537 8.65096 1.0037C8.02596 0.953699 7.47596 1.4162 7.42596 2.0537C7.38846 2.6787 7.85096 3.2287 8.47596 3.2787Z"
-                      fill="black"
-                    />
-                    <path
-                      d="M7.5139 3.74099C7.7389 3.59099 8.0139 3.47849 8.3139 3.50349C8.7014 3.54099 9.0264 3.77849 9.2264 4.07849L10.3764 6.35349L11.9389 7.44099C12.0764 7.54099 12.1514 7.71599 12.1389 7.89099C12.1139 8.17849 11.8639 8.37849 11.5889 8.36599C11.5014 8.36599 11.4389 8.32849 11.3514 8.29099L9.6389 7.11599C9.5889 7.06599 9.5389 7.01599 9.5139 6.96599L9.0889 6.11599L8.5639 8.36599L10.5889 10.7535C10.6389 10.8285 10.6639 10.916 10.6889 11.0035L11.2389 13.891C11.2389 13.9535 11.2514 13.991 11.2389 14.0535C11.2014 14.4785 10.8389 14.791 10.4014 14.766C10.0514 14.741 9.7889 14.4785 9.7014 14.1535L9.1889 11.441L7.5514 9.64099L7.1639 11.391C7.1514 11.4785 7.0389 11.641 7.0139 11.716L5.4389 14.3785C5.2764 14.6285 5.0139 14.7785 4.7139 14.7535C4.2889 14.716 3.9764 14.3535 4.0014 13.916C4.0139 13.791 4.0639 13.666 4.1014 13.591L5.5639 11.1285L6.7764 5.71599L5.9764 6.36599L5.5514 8.29099C5.5014 8.54099 5.2764 8.74099 5.0014 8.71599C4.7264 8.69099 4.5014 8.45349 4.5264 8.16599C4.5264 8.14099 4.5389 8.11599 4.5389 8.10349L5.0389 5.85349C5.0639 5.75349 5.1264 5.66599 5.2014 5.60349L7.5139 3.74099Z"
-                      fill="black"
-                    />
-                  </svg>
-                  <span class="route_data__metro_distance_text">1.9 км</span>
-                </p>
-              </NuxtLink>
-            </li>
-            <li class="route_data__metro_item">
-              <NuxtLink to="https://yandex.ru/maps/-/CDbvmCM7" target="_blank">
-                <span
-                  class="route_data__metro_icon"
-                  style="background: #70b0b1"
-                >
-                  M
-                </span>
-                <span class="route_data__metro_name">Хорошёвская</span>
-                <p class="route_data__metro_distance">
-                  <svg
-                    class="route_data__metro_distance_icon"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M8.47596 3.2787C9.10096 3.3287 9.65096 2.8537 9.70096 2.2287C9.75096 1.6037 9.28846 1.0537 8.65096 1.0037C8.02596 0.953699 7.47596 1.4162 7.42596 2.0537C7.38846 2.6787 7.85096 3.2287 8.47596 3.2787Z"
-                      fill="black"
-                    />
-                    <path
-                      d="M7.5139 3.74099C7.7389 3.59099 8.0139 3.47849 8.3139 3.50349C8.7014 3.54099 9.0264 3.77849 9.2264 4.07849L10.3764 6.35349L11.9389 7.44099C12.0764 7.54099 12.1514 7.71599 12.1389 7.89099C12.1139 8.17849 11.8639 8.37849 11.5889 8.36599C11.5014 8.36599 11.4389 8.32849 11.3514 8.29099L9.6389 7.11599C9.5889 7.06599 9.5389 7.01599 9.5139 6.96599L9.0889 6.11599L8.5639 8.36599L10.5889 10.7535C10.6389 10.8285 10.6639 10.916 10.6889 11.0035L11.2389 13.891C11.2389 13.9535 11.2514 13.991 11.2389 14.0535C11.2014 14.4785 10.8389 14.791 10.4014 14.766C10.0514 14.741 9.7889 14.4785 9.7014 14.1535L9.1889 11.441L7.5514 9.64099L7.1639 11.391C7.1514 11.4785 7.0389 11.641 7.0139 11.716L5.4389 14.3785C5.2764 14.6285 5.0139 14.7785 4.7139 14.7535C4.2889 14.716 3.9764 14.3535 4.0014 13.916C4.0139 13.791 4.0639 13.666 4.1014 13.591L5.5639 11.1285L6.7764 5.71599L5.9764 6.36599L5.5514 8.29099C5.5014 8.54099 5.2764 8.74099 5.0014 8.71599C4.7264 8.69099 4.5014 8.45349 4.5264 8.16599C4.5264 8.14099 4.5389 8.11599 4.5389 8.10349L5.0389 5.85349C5.0639 5.75349 5.1264 5.66599 5.2014 5.60349L7.5139 3.74099Z"
-                      fill="black"
-                    />
-                  </svg>
-                  <span class="route_data__metro_distance_text">1.93 км</span>
+                  <span class="route_data__metro_distance_text">
+                    {{ metro.distance }}
+                  </span>
                 </p>
               </NuxtLink>
             </li>
@@ -235,6 +179,7 @@
 </template>
 
 <script setup lang="ts">
+// Core
 import {
   YandexMap,
   YandexMapControls,
@@ -245,18 +190,51 @@ import {
   YandexMapScaleControl,
   YandexMapZoomControl,
 } from "vue-yandex-maps";
-
 import { ref, watch } from "vue";
 import debounce from "lodash/debounce";
 import { LoadingOutlined } from "@ant-design/icons-vue";
 
+// Types
+import type {
+  TDadataAddress,
+  TDadataAddressSuggestionResponse,
+} from "~/types/services-dadata";
+import type { TContactsRouteGeo, TContactsRouteMetro } from "~/types/contacts";
+
+// Initialization constants
 const reqAddress = ref("");
-const suggestions = ref([]);
+const suggestions = ref<TDadataAddress[]>([]);
 const linkToTheRoute = ref("");
 const submitAddress = ref<boolean>(false);
 const isLoading = ref<boolean>(false);
 
-const setAddress = (address: string, geo) => {
+// Initial Data
+const dataMetro = [
+  {
+    id: 1,
+    name: "Беговая",
+    linkRoute: "https://yandex.ru/maps/-/CDbvmF9l",
+    color: "#7949A4",
+    distance: "1.86 км",
+  },
+  {
+    id: 2,
+    name: "Шелепиха",
+    linkRoute: "https://yandex.ru/maps/-/CDbvmVyy",
+    color: "#70B0B1",
+    distance: "1.9 км",
+  },
+  {
+    id: 3,
+    name: "Хорошёвская",
+    linkRoute: "https://yandex.ru/maps/-/CDbvmCM7",
+    color: "#70B0B1",
+    distance: "1.93 км",
+  },
+] as TContactsRouteMetro[];
+
+// Callbacks
+const setAddress = (address: string, geo: TContactsRouteGeo) => {
   reqAddress.value = address;
   suggestions.value = [];
   submitAddress.value = true;
@@ -266,10 +244,13 @@ const setAddress = (address: string, geo) => {
 const fetchAddressSuggestions = debounce(async () => {
   isLoading.value = true;
 
-  const { data, error } = await useFetch("/api/service/get-address", {
-    method: "POST",
-    body: { query: reqAddress.value },
-  });
+  const { data, error } = await useFetch<TDadataAddressSuggestionResponse>(
+    "/api/service/get-address",
+    {
+      method: "POST",
+      body: { query: reqAddress.value },
+    },
+  );
 
   if (!error.value && data.value) {
     suggestions.value = data.value.suggestions;
@@ -280,6 +261,7 @@ const fetchAddressSuggestions = debounce(async () => {
   isLoading.value = false;
 }, 1500);
 
+// Watcher (useEffect)
 watch(reqAddress, () => {
   if (!submitAddress.value) {
     isLoading.value = true;
