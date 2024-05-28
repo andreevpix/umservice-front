@@ -134,7 +134,7 @@
           <yandex-map
             :settings="{
               location: {
-                center: [37.526933, 55.765403], // starting position [lng, lat]
+                center: [37.526982, 55.765513], // starting position [lng, lat]
                 zoom: 17, // starting zoom
               },
             }"
@@ -152,10 +152,10 @@
 
             <yandex-map-default-marker
               :settings="{
-                coordinates: [37.526933, 55.765403],
+                coordinates: [37.526982, 55.765513],
                 title: 'Умный сервис ⭐4,8',
                 subtitle: 'До 18:00',
-                draggable: true,
+                draggable: false,
               }"
             />
           </yandex-map>
